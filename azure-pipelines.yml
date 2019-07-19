@@ -1,22 +1,28 @@
+variables:
+  AGENT_POOL_NAME_VAR: 'agl-automation-staging-ubuntu-1604-docker-18-06-1-ce-standard'
 trigger:
 - master
 stages:
 - stage: Build
   jobs:
   - job: BuildJob
+    pool: $(AGENT_POOL_NAME_VAR)
     steps:
     - script: echo Building!
 - stage: Test
   jobs:
   - job: TestOnWindows
+    pool: $(AGENT_POOL_NAME_VAR)
     steps:
     - script: echo Testing on Windows!
   - job: TestOnLinux
+    pool: $(AGENT_POOL_NAME_VAR)
     steps:
     - script: echo Testing on Linux!
 - stage: Deploy
   jobs:
   - job: Deploy
+    pool: $(AGENT_POOL_NAME_VAR)
     steps:
     - script: echo Deploying the code!
 
