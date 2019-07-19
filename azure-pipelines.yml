@@ -11,7 +11,7 @@ stages:
     - script: echo Building!
     - task: AzureCLI@1
       inputs:
-        azureSubscription: 'Automation-Production (16af8ed8-0aed-45f1-b187-36fef64b0e34)'
+        azureSubscription: 'workspace-build-agent-containers'
         scriptLocation: 'inlineScript'
         inlineScript: 'ls -la'
 - stage: Test
