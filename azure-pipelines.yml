@@ -4,9 +4,10 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-stages:
-- stage: dev
-  displayName: dev
-- stage: prod
-  displayName: prod
-  dependsOn: []
+name: $(Date:yyyyMMdd)$(Rev:.r)
+variables:
+  var1: value1
+jobs:
+- job: One
+  steps:
+  - script: echo First step!
